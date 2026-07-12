@@ -1,27 +1,49 @@
+import { useState } from "react";
+
 function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <nav>
-      <h2>My Portfolio</h2>
+    <nav className="navbar">
+      <div className="brand">
+        <h2>My Portfolio</h2>
+        <button
+          className="nav-toggle"
+          aria-label="Toggle navigation"
+          aria-expanded={isOpen}
+          onClick={() => setIsOpen((prev) => !prev)}
+        >
+          <span className="bar" />
+          <span className="bar" />
+          <span className="bar" />
+        </button>
+      </div>
 
-      <ul>
+      <ul className={`nav-menu ${isOpen ? "active" : ""}`}>
         <li>
-          <a href="#home">Home</a>
+          <a href="#home" onClick={() => setIsOpen(false)}>
+            Home
+          </a>
         </li>
-
         <li>
-          <a href="#about">About</a>
+          <a href="#about" onClick={() => setIsOpen(false)}>
+            About
+          </a>
         </li>
-
         <li>
-          <a href="#skills">Skills</a>
+          <a href="#skills" onClick={() => setIsOpen(false)}>
+            Skills
+          </a>
         </li>
-
         <li>
-          <a href="#projects">Projects</a>
+          <a href="#projects" onClick={() => setIsOpen(false)}>
+            Projects
+          </a>
         </li>
-
         <li>
-          <a href="#contact">Contact</a>
+          <a href="#contact" onClick={() => setIsOpen(false)}>
+            Contact
+          </a>
         </li>
       </ul>
     </nav>
