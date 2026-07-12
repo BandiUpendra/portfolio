@@ -1,38 +1,62 @@
+import project1 from "../assets/project1.png";
+import project2 from "../assets/project2.png";
+import project3 from "../assets/project3.png";
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+
 function Projects() {
   const projects = [
     {
       title: "Portfolio Website",
-      description: "A personal portfolio website built using React and CSS.",
-      tech: "React, CSS",
+      image: project1,
+      description: "A responsive portfolio built with React and CSS.",
+      tech: "React • CSS • Vite",
+      github: "https://github.com/YOUR_USERNAME/portfolio",
+      demo: "https://YOUR-PORTFOLIO.vercel.app",
     },
     {
       title: "Weather App",
-      description: "A weather application that shows real-time weather data.",
-      tech: "JavaScript, API",
+      image: project2,
+      description: "Real-time weather application using API.",
+      tech: "JavaScript • API",
+      github: "https://github.com/YOUR_USERNAME/weather-app",
+      demo: "#",
     },
     {
       title: "Todo App",
-      description: "A task management application.",
-      tech: "React",
+      image: project3,
+      description: "Task management application using React.",
+      tech: "React • CSS",
+      github: "https://github.com/YOUR_USERNAME/todo-app",
+      demo: "#",
     },
   ];
 
   return (
     <section id="projects" className="projects">
-      <h1>My Projects</h1>
+      <h2 className="section-title">My Projects</h2>
 
-      <div className="project-container">
+      <div className="projects-grid">
         {projects.map((project, index) => (
           <div className="project-card" key={index}>
-            <h2>{project.title}</h2>
+            <img src={project.image} alt={project.title} />
 
-            <p>{project.description}</p>
+            <div className="project-content">
+              <h3>{project.title}</h3>
 
-            <strong>{project.tech}</strong>
+              <p>{project.description}</p>
 
-            <br />
+              <span>{project.tech}</span>
 
-            <button>View Project</button>
+              <div className="project-buttons">
+                <a href={project.demo} target="_blank" rel="noreferrer">
+                  <FaExternalLinkAlt /> Live Demo
+                </a>
+
+                <a href={project.github} target="_blank" rel="noreferrer">
+                  <FaGithub /> GitHub
+                </a>
+              </div>
+            </div>
           </div>
         ))}
       </div>

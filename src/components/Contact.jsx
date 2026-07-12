@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import emailjs from "@emailjs/browser";
+import { FaTelegramPlane } from "react-icons/fa";
 
 function Contact() {
   const form = useRef();
@@ -9,10 +10,10 @@ function Contact() {
 
     emailjs
       .sendForm(
-        "service_ownoyei",
-        "template_1g29due",
+        "YOUR_SERVICE_ID",
+        "YOUR_TEMPLATE_ID",
         form.current,
-        "9Eayu_KLOwnnzc9T1",
+        "YOUR_PUBLIC_KEY",
       )
       .then(() => {
         alert("Message sent successfully!");
@@ -20,7 +21,7 @@ function Contact() {
       })
       .catch((error) => {
         alert("Failed to send message.");
-        console.error(error);
+        console.log(error);
       });
   };
 
@@ -28,7 +29,7 @@ function Contact() {
     <section id="contact" className="contact">
       <h1>Contact Me</h1>
 
-      <p>Have a project or opportunity? Feel free to reach out.</p>
+      <p>Let's work together! Feel free to send me a message.</p>
 
       <div className="contact-container">
         <form ref={form} onSubmit={sendEmail} className="contact-form">
@@ -53,15 +54,21 @@ function Contact() {
             required
           ></textarea>
 
-          <button type="submit">Send Message</button>
+          <button type="submit" className="send-message-button">
+            <FaTelegramPlane className="send-icon" />
+            Send Message
+          </button>
         </form>
 
         <div className="contact-info">
-          <h2>Connect With Me</h2>
+          <h2>Contact Information</h2>
 
           <p>📧 bandiupendrabandi@gmail.com</p>
-          <p>💻 github.com/yourusername</p>
-          <p>💼 linkedin.com/in/yourusername</p>
+
+          <p>💻 github.com/BandiUpendra</p>
+
+          <p>💼 linkedin.com/in/YOUR-LINKEDIN</p>
+
           <p>📍 India</p>
         </div>
       </div>

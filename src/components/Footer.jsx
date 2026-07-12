@@ -1,12 +1,42 @@
+import { FaGithub, FaLinkedin, FaEnvelope, FaArrowUp } from "react-icons/fa";
+
 function Footer() {
   return (
     <footer className="footer">
-      <p>© 2026 Your Name. All Rights Reserved.</p>
+      <div className="footer-content">
+        <h2>Chinna Portfolio</h2>
 
-      <div>
-        <a href="#">GitHub</a>
-        <a href="#">LinkedIn</a>
-        <a href="#">Email</a>
+        <p>Frontend Developer | React Developer</p>
+
+        <div className="footer-social">
+          <a
+            href="https://github.com/BandiUpendra"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaGithub />
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/YOUR-LINKEDIN-USERNAME"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaLinkedin />
+          </a>
+
+          <a href="mailto:bandiupendrabandi@gmail.com">
+            <FaEnvelope />
+          </a>
+        </div>
+
+        <a href="#home" className="back-top">
+          <FaArrowUp />
+        </a>
+
+        <hr />
+
+        <p className="copyright">© 2026 Chinna. All Rights Reserved.</p>
       </div>
     </footer>
   );

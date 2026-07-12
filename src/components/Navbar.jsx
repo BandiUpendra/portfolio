@@ -1,51 +1,54 @@
 import { useState } from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <nav className="navbar">
-      <div className="brand">
-        <h2>My Portfolio</h2>
-        <button
-          className="nav-toggle"
-          aria-label="Toggle navigation"
-          aria-expanded={isOpen}
-          onClick={() => setIsOpen((prev) => !prev)}
-        >
-          <span className="bar" />
-          <span className="bar" />
-          <span className="bar" />
-        </button>
-      </div>
+      <h2 className="logo">Chinna Portfolio</h2>
 
-      <ul className={`nav-menu ${isOpen ? "active" : ""}`}>
+      <ul className={menuOpen ? "nav-links active" : "nav-links"}>
         <li>
-          <a href="#home" onClick={() => setIsOpen(false)}>
+          <a href="#home" onClick={() => setMenuOpen(false)}>
             Home
           </a>
         </li>
+
         <li>
-          <a href="#about" onClick={() => setIsOpen(false)}>
+          <a href="#about" onClick={() => setMenuOpen(false)}>
             About
           </a>
         </li>
+
         <li>
-          <a href="#skills" onClick={() => setIsOpen(false)}>
+          <a href="#skills" onClick={() => setMenuOpen(false)}>
             Skills
           </a>
         </li>
+
         <li>
-          <a href="#projects" onClick={() => setIsOpen(false)}>
+          <a href="#projects" onClick={() => setMenuOpen(false)}>
             Projects
           </a>
         </li>
+
         <li>
-          <a href="#contact" onClick={() => setIsOpen(false)}>
+          <a href="#contact" onClick={() => setMenuOpen(false)}>
             Contact
           </a>
         </li>
+
+        <li>
+          <a href="/resume.pdf" target="_blank" rel="noreferrer">
+            Resume
+          </a>
+        </li>
       </ul>
+
+      <div className="menu-icon" onClick={() => setMenuOpen(!menuOpen)}>
+        {menuOpen ? <FaTimes /> : <FaBars />}
+      </div>
     </nav>
   );
 }
